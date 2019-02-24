@@ -1,0 +1,12 @@
+Zadanie 1.
+
+Zainstaluj GIT-a i skongiguruj własnymi danymi
+
+---
+sudo apt get install
+git config –global user.name ”Jan Kowalski”
+git config –global user.email jan.kowalski@wp.pl
+git config --list
+---
+
+Zadanie 2.
