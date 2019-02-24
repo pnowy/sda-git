@@ -2,30 +2,14 @@ Zadanie 1.
 
 Zainstaluj GIT-a i skonfiguruj własnymi danymi
 
----
-sudo apt get install
-git config –global user.name ”Jan Kowalski”
-git config –global user.email jan.kowalski@wp.pl
-git config --list
----
-
 Zadanie 2.
 
 Utwórz nowe repozytorium Gita w dowolnym folderze na komputerze lokalnym. 
 Jakie foldery możemy zobaczyć po wykonaniu komendy.
 
----
-git init
-ls -al
----
-
 Zadanie 3.
 
 Skolnuj dowolne repozytorium z portalu GitHub (np. https://github.com/pnowy/sda-git)
-
----
-git clone https://github.com/pnowy/sda-git.git
----
 
 Zadanie 4.
 
@@ -33,104 +17,40 @@ Utwórz nowy plik w repozytorium z zadania 2 i dodaj oznacz go jaki plik śledzo
 
 Zainstaluj jeden z desktopowych klientów git (SourceTree, GitHub desktop, GitKraken) i otwórz w nim utworzone repozytorium.
 
----
-touch plik.txt && echo "Content" >> plik.txt
-git status
-git add plik.txt
-git status
----
-
 Zadanie 5.
 
 Wykonaj commit zmian z zadania 4. Dodaj kilka kolejnych zmian (commit-ów).
 
 Sprawdź stan repozytoriu w kliencie graficznym.
 
----
-git commit -m "Zmiany1"
-git status
----
-
 Zadanie 6.
 
 Struktura repo (dodatkowy branch)
-
----
-git simple-commit "a"
-git simple-commit "b"
-git branch feature
-git simple-commit "c"
-git checkout feature
-git simple-commit "a1"
-git simple-commit "b1"
----
 
 Zadanie 7.
 
 Struktura repo.
 
----
-git simple-loop x 2
-git checkout -b feature
-git simple-loop y 2
-git checkout master
-git simple-commit x3
-git merge feature
----
-
 Zadanie 8.
 
 Utwórz  projekt na portalu GitHub i dla repozytorium z zadania 7 prześlij zmiany z branch-a master do repozytorium zdalnego
-
----
-git remote add origin https://github.com/pnowy/sda-git.git
-git push -u origin master
----
 
 Zadanie 9.
 
 W utworzonym projekcie utwórz nowy branch, wyślij go do repozytorium zdalnego i wykonaj 
 merge zmian w UI GitHub (poprzez utworzenie pull requesta/merge requesta).
 
----
-git checkout -b feature
-git simple-commit x
-git push -u origin feature
----
-
 Zadanie 10.
 
 Dodaj kilka tagów w swoim repozytorium i wyślij je do repozytorium zdalnego.
-
----
-git tag 1.0.0
-git push --tags
----
 
 Zadanie 11.
 
 Dodaj kilka plików do schowka a następnie przywróć je i dodaj do repozytorium.
 
----
-touch plik.txt & echo "content" >> plik.txt
-git add .
-git stash
-git stash pop
----
-
 Zadanie 12.
 
 Przywróć repozytorium do poprzedniego stanu.
-
----
-git simple-loop x 2
-git checkout -b feature
-git simple-loop y 2
-git checkout master
-git simple-loop z 2
-git merge feature
-git reset 3e73 --hard
----
 
 Zadania dodatkowe
 
@@ -139,26 +59,10 @@ Zadanie A.
 Utwórz kopię projektu jQuery. Sprawdź liczbę plików projektu,
 liczę osób biorących udział w tworzeniu projektu oraz liczbę rewizji.
 
----
-git clone https://github.com/jquery/jquery.git & cd jquery
-git shortlog -s -n (sprawdzenie uczestników projektu)
-git shortlog -s -n | wc -l (liczba uczestników projektu)
-find . -type f -print | grep -v -E '/\.git/' | wc -l (liczba plików projektu)
-git log --pretty=oneline | wc -l (liczba rewizji)
----
-
 Zadanie B.
 
 Skolnuj projekt jQuery. Zmodyfikuj kilka plików. Następnie odtwórz zawartość
 obszaru roboczego tak aby odpowiadała ostatniej rewizji.
-
----
-git clone https://github.com/jquery/jquery.git & cd jquery
-<modyfikacja plików>
-git status
-git reset --hard lub git checkout -f
-git status
----
 
 Zadanie C.
 
@@ -167,13 +71,6 @@ Skonuj repozytorium jQuery. Wykonaj:
 - sprawdzenie dostępnych tagów
 - sprawdzenie dostępnych znaczników wraz z datami utworzenia
 - przywrócenie wersji plików do 1.3
-
----
-git clone https://github.com/jquery/jquery.git & cd jquery
-git tag
-git log --tags --simplify-by-decoration --pretty="format:%ai %d"
-git checkout 1.3
----
 
 Zadanie D.
 
