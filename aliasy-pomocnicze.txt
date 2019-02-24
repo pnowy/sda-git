@@ -1,0 +1,22 @@
+    # Alias: simple-commit - create file x.txt and commit with message "x"
+    # Example: 
+    #		git simple-commit x 
+    simple-commit = !echo $1>$1.txt && git add -A && git commit -m "\"$@\"" && shift 1 && echo Simple comit done!
+	
+    # Alias simple-commits - create file x.txt, y.txt and z.txt with commit messages "x", "y" and "z"
+    # Example: 
+    #		git simple-commits x y z 
+    # 
+    simple-commits = "!simpleCommits() { for name in \"$@\"; do git simple-commit $name; done; }; simpleCommits"
+	
+    # Alias: simple-loop - create file x1.txt, x2.txt and x3.txt with commit messages "x1", "x2" and "x3"
+    # Example:
+    #		simple-loop x 3
+    # 
+    simple-loop = "!simpleLoop() { NAME=$1; i="1"; while [ $i -le $2 ]; do git simple-commit $NAME$i; i=$[$i+1]; done; }; simpleLoop"
+	
+    # Alias: makebranches - create new branches (a, b and c) in current place
+    # Example: 
+    #		branches a b c
+    # 
+    makebranches = "!makebranches() { for name in \"$@\"; do git branch $name; done; }; makebranches"
